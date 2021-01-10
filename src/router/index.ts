@@ -1,26 +1,17 @@
-import { createRouter, createWebHashHistory, RouteRecordRaw } from "vue-router";
-import Home from "../views/Home.vue";
+import { createRouter, createWebHashHistory } from "vue-router";
 
-const routes: Array<RouteRecordRaw> = [
-  {
-    path: "/",
-    name: "Home",
-    component: Home
-  },
-  {
-    path: "/about",
-    name: "About",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/About.vue")
-  }
-];
+// 动态加载views中所有的路由文件
+const files = require.context("@/views", true, /router\.ts$/);
+const routes = files.keys().map(key => {
+  // eslint-disable-next-line @typescript-eslint/no-var-requires
+  const page = require("@/views" + key.replace(".", ""));
+  return page.default;
+});
 
+// 创建路由对象
 const router = createRouter({
   history: createWebHashHistory(),
   routes
 });
-
+// 导出
 export default router;
