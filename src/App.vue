@@ -8,11 +8,12 @@
 
 <style lang="scss">
 #app {
+  text-align: center;
   font-family: Avenir, Helvetica, Arial, sans-serif;
+  color: #2c3e50;
+
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
 }
 
 #nav {

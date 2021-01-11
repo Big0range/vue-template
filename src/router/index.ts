@@ -7,7 +7,7 @@ const routes = files.keys().map(key => {
   const page = require("@/views" + key.replace(".", ""));
   return page.default;
 });
-
+console.log(routes);
 // 创建路由对象
 const router = createRouter({
   history: createWebHashHistory(),

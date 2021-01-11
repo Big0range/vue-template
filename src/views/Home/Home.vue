@@ -1,18 +1,37 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
+  <div class="home_wrap">
+    <h1><HelloWorld msg="Welcome to Your Vue.js + TypeScript App" /></h1>
   </div>
 </template>
 
 <script lang="ts">
-import { Options, Vue } from "vue-class-component";
+import { defineComponent, reactive, toRefs } from "vue";
 import HelloWorld from "@/components/HelloWorld.vue"; // @ is an alias to /src
 
-@Options({
+interface Obj {
+  msg: string;
+  changeMsg: (str: string) => void;
+}
+export default defineComponent({
+  name: "My",
   components: {
     HelloWorld
+  },
+  setup() {
+    const obj: Obj = reactive({
+      msg: "my",
+      changeMsg(str: string) {
+        this.msg = str;
+      }
+    });
+    return {
+      ...toRefs(obj)
+    };
   }
-})
-export default class Home extends Vue {}
+});
 </script>
+<style lang="scss" scoped>
+.home_wrap {
+  color: #000;
+}
+</style>

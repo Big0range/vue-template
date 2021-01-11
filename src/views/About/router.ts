@@ -1,6 +1,6 @@
 import { RouteRecordRaw } from "vue-router";
 const router: RouteRecordRaw = {
-  path: "/",
+  path: "/about",
   name: "About",
   component: () => import("./About.vue")
 };
