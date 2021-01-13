@@ -9,8 +9,8 @@ const config: AxiosRequestConfig = {
   withCredentials: false
 };
 const instance = axios.create(config);
-const CancelToken = axios.CancelToken;
-const source = CancelToken.source();
+// const CancelToken = axios.CancelToken;
+// const source = CancelToken.source();
 instance.interceptors.request.use(
   config => {
     // 1.发送网络请求时, 在界面的中间位置显示Loading的组件
@@ -18,8 +18,8 @@ instance.interceptors.request.use(
     // 2.某一些请求要求用户必须携带token, 如果没有携带, 那么直接跳转到登录页面
 
     // 3.params/data序列化的操作
-    config.cancelToken = source.token;
-    source.cancel();
+    // config.cancelToken = source.token;
+    // source.cancel();
     return config;
   },
   err => {

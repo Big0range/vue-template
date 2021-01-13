@@ -1,5 +1,5 @@
-const devBaseURL = "https://www.limeichao.cn/";
-const proBaseURL = "https://www.limeichao.cn/";
+const devBaseURL = "http://www.limeichao.cn:8000/";
+const proBaseURL = "http://www.limeichao.cn:8000/";
 export const BASE_URL =
   process.env.NODE_ENV === "development" ? devBaseURL : proBaseURL;
 

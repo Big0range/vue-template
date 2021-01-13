@@ -8,6 +8,7 @@
 import { defineComponent, reactive, toRefs } from "vue";
 import HelloWorld from "@/components/HelloWorld.vue"; // @ is an alias to /src
 
+import { post, get } from "@/api/Home.ts";
 interface Obj {
   msg: string;
   changeMsg: (str: string) => void;
@@ -16,6 +17,10 @@ export default defineComponent({
   name: "My",
   components: {
     HelloWorld
+  },
+  mounted() {
+    post();
+    get();
   },
   setup() {
     const obj: Obj = reactive({
@@ -32,5 +37,6 @@ export default defineComponent({
 </script>
 <style lang="scss" scoped>
 .home_wrap {
+  cursor: auto;
 }
 </style>
