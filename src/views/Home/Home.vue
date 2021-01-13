@@ -32,6 +32,5 @@ export default defineComponent({
 </script>
 <style lang="scss" scoped>
 .home_wrap {
-  color: #000;
 }
 </style>

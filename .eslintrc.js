@@ -69,5 +69,6 @@ module.exports = {
     "prefer-const": 1,//首选const
     "prefer-spread": 1,//首选展开运算
     "use-isnan": 2,//禁止比较时使用NaN，只能用isNaN()
+    "@typescript-eslint/no-explicit-any": ["off"]
   }
 }
