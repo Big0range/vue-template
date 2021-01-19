@@ -8,23 +8,18 @@
 import { defineComponent, reactive, toRefs } from "vue";
 import HelloWorld from "@/components/HelloWorld.vue"; // @ is an alias to /src
 
-import { post, get } from "@/api/Home.ts";
 interface Obj {
   msg: string;
   changeMsg: (str: string) => void;
 }
 export default defineComponent({
-  name: "My",
+  name: "Home",
   components: {
     HelloWorld
   },
-  mounted() {
-    post();
-    get();
-  },
   setup() {
     const obj: Obj = reactive({
-      msg: "my",
+      msg: "home",
       changeMsg(str: string) {
         this.msg = str;
       }
